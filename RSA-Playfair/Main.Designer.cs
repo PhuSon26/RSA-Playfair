@@ -32,7 +32,6 @@
             pf_btn = new Button();
             lb1 = new Label();
             lb2 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             label14 = new Label();
             panel1 = new Panel();
             btn_generate = new Button();
@@ -53,8 +52,8 @@
             label5 = new Label();
             label6 = new Label();
             panel3 = new Panel();
-            btn_decrypt = new Button();
-            btn_encrypt = new Button();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
             rtb_ciphertext = new RichTextBox();
             rtb_base = new RichTextBox();
             rtb_seg = new RichTextBox();
@@ -64,11 +63,15 @@
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
+            btn_decrypt = new Button();
+            btn_encrypt = new Button();
+            pn_rsa = new Panel();
             panel4 = new Panel();
-            flowLayoutPanel1.SuspendLayout();
+            pn_pf = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            pn_rsa.SuspendLayout();
             panel4.SuspendLayout();
             SuspendLayout();
             // 
@@ -81,16 +84,18 @@
             rsa_btn.TabIndex = 0;
             rsa_btn.Text = "RSA";
             rsa_btn.UseVisualStyleBackColor = true;
+            rsa_btn.Click += rsa_btn_Click;
             // 
             // pf_btn
             // 
             pf_btn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            pf_btn.Location = new Point(135, 44);
+            pf_btn.Location = new Point(145, 44);
             pf_btn.Name = "pf_btn";
             pf_btn.Size = new Size(127, 46);
             pf_btn.TabIndex = 1;
             pf_btn.Text = "Playfair";
             pf_btn.UseVisualStyleBackColor = true;
+            pf_btn.Click += pf_btn_Click;
             // 
             // lb1
             // 
@@ -111,14 +116,6 @@
             lb2.Size = new Size(235, 32);
             lb2.TabIndex = 3;
             lb2.Text = "Choose encrypt type";
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(label14);
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1101, 106);
-            flowLayoutPanel1.TabIndex = 4;
             // 
             // label14
             // 
@@ -311,8 +308,8 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(btn_decrypt);
-            panel3.Controls.Add(btn_encrypt);
+            panel3.Controls.Add(radioButton2);
+            panel3.Controls.Add(radioButton1);
             panel3.Controls.Add(rtb_ciphertext);
             panel3.Controls.Add(rtb_base);
             panel3.Controls.Add(rtb_seg);
@@ -324,28 +321,32 @@
             panel3.Controls.Add(label9);
             panel3.Location = new Point(0, 403);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1101, 341);
+            panel3.Size = new Size(1101, 285);
             panel3.TabIndex = 6;
             // 
-            // btn_decrypt
+            // radioButton2
             // 
-            btn_decrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_decrypt.Location = new Point(556, 291);
-            btn_decrypt.Name = "btn_decrypt";
-            btn_decrypt.Size = new Size(178, 47);
-            btn_decrypt.TabIndex = 24;
-            btn_decrypt.Text = "Decrypt";
-            btn_decrypt.UseVisualStyleBackColor = true;
+            radioButton2.AutoSize = true;
+            radioButton2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            radioButton2.Location = new Point(242, 17);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(86, 25);
+            radioButton2.TabIndex = 28;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Number";
+            radioButton2.UseVisualStyleBackColor = true;
             // 
-            // btn_encrypt
+            // radioButton1
             // 
-            btn_encrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_encrypt.Location = new Point(303, 291);
-            btn_encrypt.Name = "btn_encrypt";
-            btn_encrypt.Size = new Size(178, 47);
-            btn_encrypt.TabIndex = 8;
-            btn_encrypt.Text = "Encrypt";
-            btn_encrypt.UseVisualStyleBackColor = true;
+            radioButton1.AutoSize = true;
+            radioButton1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            radioButton1.Location = new Point(173, 17);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(54, 25);
+            radioButton1.TabIndex = 27;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Text";
+            radioButton1.UseVisualStyleBackColor = true;
             // 
             // rtb_ciphertext
             // 
@@ -429,16 +430,52 @@
             label9.TabIndex = 16;
             label9.Text = "Input as";
             // 
+            // btn_decrypt
+            // 
+            btn_decrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_decrypt.Location = new Point(589, 790);
+            btn_decrypt.Name = "btn_decrypt";
+            btn_decrypt.Size = new Size(178, 47);
+            btn_decrypt.TabIndex = 24;
+            btn_decrypt.Text = "Decrypt";
+            btn_decrypt.UseVisualStyleBackColor = true;
+            // 
+            // btn_encrypt
+            // 
+            btn_encrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_encrypt.Location = new Point(342, 790);
+            btn_encrypt.Name = "btn_encrypt";
+            btn_encrypt.Size = new Size(178, 47);
+            btn_encrypt.TabIndex = 8;
+            btn_encrypt.Text = "Encrypt";
+            btn_encrypt.UseVisualStyleBackColor = true;
+            // 
+            // pn_rsa
+            // 
+            pn_rsa.Controls.Add(panel3);
+            pn_rsa.Controls.Add(panel4);
+            pn_rsa.Controls.Add(panel2);
+            pn_rsa.Controls.Add(panel1);
+            pn_rsa.Location = new Point(12, 96);
+            pn_rsa.Name = "pn_rsa";
+            pn_rsa.Size = new Size(1103, 688);
+            pn_rsa.TabIndex = 7;
+            // 
             // panel4
             // 
-            panel4.Controls.Add(panel3);
-            panel4.Controls.Add(flowLayoutPanel1);
-            panel4.Controls.Add(panel2);
-            panel4.Controls.Add(panel1);
-            panel4.Location = new Point(12, 96);
+            panel4.Controls.Add(label14);
+            panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1103, 747);
-            panel4.TabIndex = 7;
+            panel4.Size = new Size(1103, 100);
+            panel4.TabIndex = 1;
+            // 
+            // pn_pf
+            // 
+            pn_pf.Location = new Point(12, 96);
+            pn_pf.Name = "pn_pf";
+            pn_pf.Size = new Size(1101, 688);
+            pn_pf.TabIndex = 8;
+            pn_pf.Controls.Add(pf);
             // 
             // Main
             // 
@@ -447,20 +484,23 @@
             ClientSize = new Size(1115, 838);
             Controls.Add(lb2);
             Controls.Add(lb1);
+            Controls.Add(btn_decrypt);
             Controls.Add(pf_btn);
+            Controls.Add(btn_encrypt);
             Controls.Add(rsa_btn);
-            Controls.Add(panel4);
+            Controls.Add(pn_rsa);
+            Controls.Add(pn_pf);
             Name = "Main";
             Text = "Form1";
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            pn_rsa.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -471,11 +511,10 @@
         private Button pf_btn;
         private Label lb1;
         private Label lb2;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private Panel panel4;
+        private Panel pn_rsa;
         private Button btn_generate;
         private RichTextBox rtb_q;
         private RichTextBox rtb_p;
@@ -504,5 +543,9 @@
         private Label label14;
         private Button btn_decrypt;
         private Button btn_encrypt;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
+        private Panel pn_pf;
+        private Panel panel4;
     }
 }
