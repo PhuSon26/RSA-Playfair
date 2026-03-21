@@ -33,44 +33,49 @@
             lb1 = new Label();
             lb2 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            label14 = new Label();
             panel1 = new Panel();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            panel4 = new Panel();
-            label2 = new Label();
+            btn_generate = new Button();
+            rtb_q = new RichTextBox();
+            rtb_p = new RichTextBox();
             label3 = new Label();
-            richTextBox1 = new RichTextBox();
-            richTextBox2 = new RichTextBox();
-            button1 = new Button();
+            label2 = new Label();
+            panel2 = new Panel();
+            btn_update = new Button();
+            label7 = new Label();
+            label8 = new Label();
+            rtb_d = new RichTextBox();
+            rtb_e = new RichTextBox();
+            rtb_phi = new RichTextBox();
+            rtb_modulus = new RichTextBox();
             label1 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            richTextBox3 = new RichTextBox();
-            richTextBox4 = new RichTextBox();
-            richTextBox5 = new RichTextBox();
-            richTextBox6 = new RichTextBox();
-            label7 = new Label();
-            label8 = new Label();
-            button2 = new Button();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
+            panel3 = new Panel();
+            btn_decrypt = new Button();
+            btn_encrypt = new Button();
+            rtb_ciphertext = new RichTextBox();
+            rtb_base = new RichTextBox();
+            rtb_seg = new RichTextBox();
+            rtb_plaintext = new RichTextBox();
             label13 = new Label();
-            richTextBox7 = new RichTextBox();
-            richTextBox8 = new RichTextBox();
-            richTextBox9 = new RichTextBox();
-            richTextBox10 = new RichTextBox();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            label9 = new Label();
+            panel4 = new Panel();
+            flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // rsa_btn
             // 
             rsa_btn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rsa_btn.Location = new Point(12, 57);
+            rsa_btn.Location = new Point(12, 44);
             rsa_btn.Name = "rsa_btn";
             rsa_btn.Size = new Size(127, 46);
             rsa_btn.TabIndex = 0;
@@ -80,7 +85,7 @@
             // pf_btn
             // 
             pf_btn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            pf_btn.Location = new Point(135, 57);
+            pf_btn.Location = new Point(135, 44);
             pf_btn.Name = "pf_btn";
             pf_btn.Size = new Size(127, 46);
             pf_btn.TabIndex = 1;
@@ -109,74 +114,59 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(12, 109);
+            flowLayoutPanel1.Controls.Add(label14);
+            flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1191, 103);
+            flowLayoutPanel1.Size = new Size(1101, 106);
             flowLayoutPanel1.TabIndex = 4;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(3, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(356, 15);
+            label14.TabIndex = 0;
+            label14.Text = "RSA using the private and public key - or using only the public key";
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(richTextBox2);
-            panel1.Controls.Add(richTextBox1);
+            panel1.Controls.Add(btn_generate);
+            panel1.Controls.Add(rtb_q);
+            panel1.Controls.Add(rtb_p);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(12, 218);
+            panel1.Location = new Point(0, 112);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1191, 103);
+            panel1.Size = new Size(1101, 103);
             panel1.TabIndex = 5;
             // 
-            // panel2
+            // btn_generate
             // 
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(richTextBox6);
-            panel2.Controls.Add(richTextBox5);
-            panel2.Controls.Add(richTextBox4);
-            panel2.Controls.Add(richTextBox3);
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(label6);
-            panel2.Location = new Point(12, 327);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1191, 176);
-            panel2.TabIndex = 6;
-            panel2.Paint += this.panel2_Paint;
+            btn_generate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_generate.Location = new Point(858, 18);
+            btn_generate.Name = "btn_generate";
+            btn_generate.Size = new Size(233, 70);
+            btn_generate.TabIndex = 8;
+            btn_generate.Text = "Generate Prime Number";
+            btn_generate.UseVisualStyleBackColor = true;
+            btn_generate.Click += btn_generate_Click;
             // 
-            // panel3
+            // rtb_q
             // 
-            panel3.Controls.Add(richTextBox10);
-            panel3.Controls.Add(richTextBox9);
-            panel3.Controls.Add(richTextBox8);
-            panel3.Controls.Add(richTextBox7);
-            panel3.Controls.Add(label13);
-            panel3.Controls.Add(label12);
-            panel3.Controls.Add(label11);
-            panel3.Controls.Add(label10);
-            panel3.Controls.Add(label9);
-            panel3.Location = new Point(12, 509);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1191, 328);
-            panel3.TabIndex = 6;
+            rtb_q.Location = new Point(173, 56);
+            rtb_q.Name = "rtb_q";
+            rtb_q.Size = new Size(669, 32);
+            rtb_q.TabIndex = 3;
+            rtb_q.Text = "";
             // 
-            // panel4
+            // rtb_p
             // 
-            panel4.Location = new Point(12, 109);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(1191, 728);
-            panel4.TabIndex = 7;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(3, 18);
-            label2.Name = "label2";
-            label2.Size = new Size(148, 25);
-            label2.TabIndex = 0;
-            label2.Text = "Prime number p";
+            rtb_p.Location = new Point(173, 18);
+            rtb_p.Name = "rtb_p";
+            rtb_p.Size = new Size(669, 32);
+            rtb_p.TabIndex = 2;
+            rtb_p.Text = "";
             // 
             // label3
             // 
@@ -188,31 +178,96 @@
             label3.TabIndex = 1;
             label3.Text = "Prime number q";
             // 
-            // richTextBox1
+            // label2
             // 
-            richTextBox1.Location = new Point(173, 18);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(759, 32);
-            richTextBox1.TabIndex = 2;
-            richTextBox1.Text = "";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(3, 18);
+            label2.Name = "label2";
+            label2.Size = new Size(148, 25);
+            label2.TabIndex = 0;
+            label2.Text = "Prime number p";
             // 
-            // richTextBox2
+            // panel2
             // 
-            richTextBox2.Location = new Point(173, 56);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(759, 32);
-            richTextBox2.TabIndex = 3;
-            richTextBox2.Text = "";
+            panel2.Controls.Add(btn_update);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(rtb_d);
+            panel2.Controls.Add(rtb_e);
+            panel2.Controls.Add(rtb_phi);
+            panel2.Controls.Add(rtb_modulus);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(label6);
+            panel2.Location = new Point(0, 221);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1101, 176);
+            panel2.TabIndex = 6;
             // 
-            // button1
+            // btn_update
             // 
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(938, 18);
-            button1.Name = "button1";
-            button1.Size = new Size(243, 70);
-            button1.TabIndex = 8;
-            button1.Text = "Generate Prime Number";
-            button1.UseVisualStyleBackColor = true;
+            btn_update.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_update.Location = new Point(858, 91);
+            btn_update.Name = "btn_update";
+            btn_update.Size = new Size(233, 70);
+            btn_update.TabIndex = 9;
+            btn_update.Text = "Update Parameters";
+            btn_update.UseVisualStyleBackColor = true;
+            btn_update.Click += btn_update_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(858, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(76, 25);
+            label7.TabIndex = 9;
+            label7.Text = "(Public)";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(858, 59);
+            label8.Name = "label8";
+            label8.Size = new Size(76, 25);
+            label8.TabIndex = 10;
+            label8.Text = "(Secret)";
+            // 
+            // rtb_d
+            // 
+            rtb_d.Location = new Point(173, 129);
+            rtb_d.Name = "rtb_d";
+            rtb_d.Size = new Size(669, 32);
+            rtb_d.TabIndex = 15;
+            rtb_d.Text = "";
+            // 
+            // rtb_e
+            // 
+            rtb_e.Location = new Point(173, 90);
+            rtb_e.Name = "rtb_e";
+            rtb_e.Size = new Size(669, 32);
+            rtb_e.TabIndex = 14;
+            rtb_e.Text = "";
+            // 
+            // rtb_phi
+            // 
+            rtb_phi.Location = new Point(173, 52);
+            rtb_phi.Name = "rtb_phi";
+            rtb_phi.Size = new Size(669, 32);
+            rtb_phi.TabIndex = 13;
+            rtb_phi.Text = "";
+            // 
+            // rtb_modulus
+            // 
+            rtb_modulus.Location = new Point(173, 8);
+            rtb_modulus.Name = "rtb_modulus";
+            rtb_modulus.Size = new Size(669, 32);
+            rtb_modulus.TabIndex = 9;
+            rtb_modulus.Text = "";
             // 
             // label1
             // 
@@ -254,108 +309,75 @@
             label6.TabIndex = 12;
             label6.Text = "Private key d";
             // 
-            // richTextBox3
+            // panel3
             // 
-            richTextBox3.Location = new Point(173, 8);
-            richTextBox3.Name = "richTextBox3";
-            richTextBox3.Size = new Size(759, 32);
-            richTextBox3.TabIndex = 9;
-            richTextBox3.Text = "";
+            panel3.Controls.Add(btn_decrypt);
+            panel3.Controls.Add(btn_encrypt);
+            panel3.Controls.Add(rtb_ciphertext);
+            panel3.Controls.Add(rtb_base);
+            panel3.Controls.Add(rtb_seg);
+            panel3.Controls.Add(rtb_plaintext);
+            panel3.Controls.Add(label13);
+            panel3.Controls.Add(label12);
+            panel3.Controls.Add(label11);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(label9);
+            panel3.Location = new Point(0, 403);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1101, 341);
+            panel3.TabIndex = 6;
             // 
-            // richTextBox4
+            // btn_decrypt
             // 
-            richTextBox4.Location = new Point(173, 52);
-            richTextBox4.Name = "richTextBox4";
-            richTextBox4.Size = new Size(759, 32);
-            richTextBox4.TabIndex = 13;
-            richTextBox4.Text = "";
+            btn_decrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_decrypt.Location = new Point(556, 291);
+            btn_decrypt.Name = "btn_decrypt";
+            btn_decrypt.Size = new Size(178, 47);
+            btn_decrypt.TabIndex = 24;
+            btn_decrypt.Text = "Decrypt";
+            btn_decrypt.UseVisualStyleBackColor = true;
             // 
-            // richTextBox5
+            // btn_encrypt
             // 
-            richTextBox5.Location = new Point(173, 90);
-            richTextBox5.Name = "richTextBox5";
-            richTextBox5.Size = new Size(759, 32);
-            richTextBox5.TabIndex = 14;
-            richTextBox5.Text = "";
-            richTextBox5.TextChanged += richTextBox5_TextChanged;
+            btn_encrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_encrypt.Location = new Point(303, 291);
+            btn_encrypt.Name = "btn_encrypt";
+            btn_encrypt.Size = new Size(178, 47);
+            btn_encrypt.TabIndex = 8;
+            btn_encrypt.Text = "Encrypt";
+            btn_encrypt.UseVisualStyleBackColor = true;
             // 
-            // richTextBox6
+            // rtb_ciphertext
             // 
-            richTextBox6.Location = new Point(173, 129);
-            richTextBox6.Name = "richTextBox6";
-            richTextBox6.Size = new Size(759, 32);
-            richTextBox6.TabIndex = 15;
-            richTextBox6.Text = "";
+            rtb_ciphertext.Location = new Point(8, 253);
+            rtb_ciphertext.Name = "rtb_ciphertext";
+            rtb_ciphertext.Size = new Size(1083, 32);
+            rtb_ciphertext.TabIndex = 23;
+            rtb_ciphertext.Text = "";
             // 
-            // label7
+            // rtb_base
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(967, 15);
-            label7.Name = "label7";
-            label7.Size = new Size(76, 25);
-            label7.TabIndex = 9;
-            label7.Text = "(Public)";
+            rtb_base.Location = new Point(8, 190);
+            rtb_base.Name = "rtb_base";
+            rtb_base.Size = new Size(1083, 32);
+            rtb_base.TabIndex = 22;
+            rtb_base.Text = "";
             // 
-            // label8
+            // rtb_seg
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(967, 59);
-            label8.Name = "label8";
-            label8.Size = new Size(76, 25);
-            label8.TabIndex = 10;
-            label8.Text = "(Secret)";
+            rtb_seg.Location = new Point(8, 132);
+            rtb_seg.Name = "rtb_seg";
+            rtb_seg.Size = new Size(1083, 32);
+            rtb_seg.TabIndex = 21;
+            rtb_seg.Text = "";
             // 
-            // button2
+            // rtb_plaintext
             // 
-            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(938, 91);
-            button2.Name = "button2";
-            button2.Size = new Size(243, 70);
-            button2.TabIndex = 9;
-            button2.Text = "Update Parameters";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(3, 16);
-            label9.Name = "label9";
-            label9.Size = new Size(79, 25);
-            label9.TabIndex = 16;
-            label9.Text = "Input as";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(3, 41);
-            label10.Name = "label10";
-            label10.Size = new Size(85, 25);
-            label10.TabIndex = 17;
-            label10.Text = "Plaintext";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(3, 104);
-            label11.Name = "label11";
-            label11.Size = new Size(752, 25);
-            label11.TabIndex = 18;
-            label11.Text = "The input will be seperated into segments of Size 1 (The symbol '#'  is used as seperator)";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(8, 162);
-            label12.Name = "label12";
-            label12.Size = new Size(289, 25);
-            label12.TabIndex = 19;
-            label12.Text = "Numbers input in base 10 format";
+            rtb_plaintext.Location = new Point(8, 69);
+            rtb_plaintext.Name = "rtb_plaintext";
+            rtb_plaintext.Size = new Size(1083, 32);
+            rtb_plaintext.TabIndex = 16;
+            rtb_plaintext.Text = "";
             // 
             // label13
             // 
@@ -367,47 +389,62 @@
             label13.TabIndex = 20;
             label13.Text = "Ciphertext";
             // 
-            // richTextBox7
+            // label12
             // 
-            richTextBox7.Location = new Point(8, 69);
-            richTextBox7.Name = "richTextBox7";
-            richTextBox7.Size = new Size(1173, 32);
-            richTextBox7.TabIndex = 16;
-            richTextBox7.Text = "";
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(8, 162);
+            label12.Name = "label12";
+            label12.Size = new Size(289, 25);
+            label12.TabIndex = 19;
+            label12.Text = "Numbers input in base 10 format";
             // 
-            // richTextBox8
+            // label11
             // 
-            richTextBox8.Location = new Point(8, 132);
-            richTextBox8.Name = "richTextBox8";
-            richTextBox8.Size = new Size(1173, 32);
-            richTextBox8.TabIndex = 21;
-            richTextBox8.Text = "";
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(3, 104);
+            label11.Name = "label11";
+            label11.Size = new Size(752, 25);
+            label11.TabIndex = 18;
+            label11.Text = "The input will be seperated into segments of Size 1 (The symbol '#'  is used as seperator)";
             // 
-            // richTextBox9
+            // label10
             // 
-            richTextBox9.Location = new Point(8, 190);
-            richTextBox9.Name = "richTextBox9";
-            richTextBox9.Size = new Size(1173, 32);
-            richTextBox9.TabIndex = 22;
-            richTextBox9.Text = "";
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Location = new Point(3, 41);
+            label10.Name = "label10";
+            label10.Size = new Size(85, 25);
+            label10.TabIndex = 17;
+            label10.Text = "Plaintext";
             // 
-            // richTextBox10
+            // label9
             // 
-            richTextBox10.Location = new Point(8, 253);
-            richTextBox10.Name = "richTextBox10";
-            richTextBox10.Size = new Size(1173, 32);
-            richTextBox10.TabIndex = 23;
-            richTextBox10.Text = "";
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(3, 16);
+            label9.Name = "label9";
+            label9.Size = new Size(79, 25);
+            label9.TabIndex = 16;
+            label9.Text = "Input as";
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(panel3);
+            panel4.Controls.Add(flowLayoutPanel1);
+            panel4.Controls.Add(panel2);
+            panel4.Controls.Add(panel1);
+            panel4.Location = new Point(12, 96);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1103, 747);
+            panel4.TabIndex = 7;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1215, 838);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(flowLayoutPanel1);
+            ClientSize = new Size(1115, 838);
             Controls.Add(lb2);
             Controls.Add(lb1);
             Controls.Add(pf_btn);
@@ -415,12 +452,15 @@
             Controls.Add(panel4);
             Name = "Main";
             Text = "Form1";
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -436,30 +476,33 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
-        private Button button1;
-        private RichTextBox richTextBox2;
-        private RichTextBox richTextBox1;
+        private Button btn_generate;
+        private RichTextBox rtb_q;
+        private RichTextBox rtb_p;
         private Label label3;
         private Label label2;
         private Label label1;
         private Label label4;
         private Label label5;
         private Label label6;
-        private RichTextBox richTextBox6;
-        private RichTextBox richTextBox5;
-        private RichTextBox richTextBox4;
-        private RichTextBox richTextBox3;
-        private Button button2;
+        private RichTextBox rtb_d;
+        private RichTextBox rtb_e;
+        private RichTextBox rtb_phi;
+        private RichTextBox rtb_modulus;
+        private Button btn_update;
         private Label label7;
         private Label label8;
         private Label label9;
-        private RichTextBox richTextBox10;
-        private RichTextBox richTextBox9;
-        private RichTextBox richTextBox8;
-        private RichTextBox richTextBox7;
+        private RichTextBox rtb_ciphertext;
+        private RichTextBox rtb_base;
+        private RichTextBox rtb_seg;
+        private RichTextBox rtb_plaintext;
         private Label label13;
         private Label label12;
         private Label label11;
         private Label label10;
+        private Label label14;
+        private Button btn_decrypt;
+        private Button btn_encrypt;
     }
 }
