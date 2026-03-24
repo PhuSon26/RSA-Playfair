@@ -56,6 +56,7 @@ namespace RSA_Playfair
             pf_btn.Enabled = true;
             pn_rsa.Enabled = true;
             pn_rsa.Visible = true;
+            lb1.Text = "RSA";
         }
 
         private void pf_btn_Click(object sender, EventArgs e)
@@ -66,6 +67,7 @@ namespace RSA_Playfair
             rsa_btn.Enabled = true;
             pn_rsa.Enabled = false;
             pn_rsa.Visible = false;
+            lb1.Text = "PlayFair";
         }
     }
 }

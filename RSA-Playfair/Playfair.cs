@@ -14,5 +14,10 @@ namespace RSA_Playfair
         {
             InitializeComponent();
         }
+
+        private void richTextBox38_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
