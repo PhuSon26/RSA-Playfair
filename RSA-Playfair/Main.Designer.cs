@@ -439,6 +439,7 @@
             btn_decrypt.TabIndex = 24;
             btn_decrypt.Text = "Decrypt";
             btn_decrypt.UseVisualStyleBackColor = true;
+            btn_decrypt.Click += btn_decrypt_Click;
             // 
             // btn_encrypt
             // 
@@ -449,6 +450,7 @@
             btn_encrypt.TabIndex = 8;
             btn_encrypt.Text = "Encrypt";
             btn_encrypt.UseVisualStyleBackColor = true;
+            btn_encrypt.Click += btn_encrypt_Click;
             // 
             // pn_rsa
             // 
@@ -475,7 +477,6 @@
             pn_pf.Name = "pn_pf";
             pn_pf.Size = new Size(1101, 688);
             pn_pf.TabIndex = 8;
-            pn_pf.Controls.Add(pf);
             // 
             // Main
             // 

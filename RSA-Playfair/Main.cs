@@ -8,6 +8,8 @@ namespace RSA_Playfair
             InitializeComponent();
             rsa_btn.Enabled = false;
             rsa_btn.BackColor = Color.Gray;
+            pf.Dock = DockStyle.Fill;
+            pn_pf.Controls.Add(pf);
         }
 
         private bool isprime(int n)
@@ -52,22 +54,42 @@ namespace RSA_Playfair
         {
             rsa_btn.BackColor = Color.Gray;
             pf_btn.BackColor = SystemColors.Control;
+
             rsa_btn.Enabled = false;
             pf_btn.Enabled = true;
+
             pn_rsa.Enabled = true;
             pn_rsa.Visible = true;
+
+            pn_pf.Enabled = false;
+            pn_pf.Visible = false;
+
             lb1.Text = "RSA";
         }
-
         private void pf_btn_Click(object sender, EventArgs e)
         {
             pf_btn.BackColor = Color.Gray;
             rsa_btn.BackColor = SystemColors.Control;
+
             pf_btn.Enabled = false;
             rsa_btn.Enabled = true;
+
             pn_rsa.Enabled = false;
             pn_rsa.Visible = false;
+
+            pn_pf.Enabled = true;
+            pn_pf.Visible = true;
+
             lb1.Text = "PlayFair";
+        }
+        private void btn_encrypt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_decrypt_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
