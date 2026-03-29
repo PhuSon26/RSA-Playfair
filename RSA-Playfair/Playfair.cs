@@ -70,7 +70,6 @@ namespace RSA_Playfair
             }
 
             string output = pfc.Encrypt(rtb_input.Text);
-
             rtb_output.Text = output;
         }
         private void btn_decrypt_Click(object sender, EventArgs e)

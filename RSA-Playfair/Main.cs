@@ -10,6 +10,12 @@ namespace RSA_Playfair
             rsa_btn.BackColor = Color.Gray;
             pf.Dock = DockStyle.Fill;
             pn_pf.Controls.Add(pf);
+
+            btn_encrypt.Enabled = false;
+            btn_decrypt.Enabled = false;
+
+            btn_decrypt.Visible = false;
+            btn_encrypt.Visible = false;
         }
 
         private bool isprime(int n)
@@ -64,6 +70,13 @@ namespace RSA_Playfair
             pn_pf.Enabled = false;
             pn_pf.Visible = false;
 
+            btn_encrypt.Enabled = true;
+            btn_decrypt.Enabled = true;
+
+            btn_decrypt.Visible = true;
+            btn_encrypt.Visible = true;
+
+
             lb1.Text = "RSA";
         }
         private void pf_btn_Click(object sender, EventArgs e)
@@ -79,6 +92,12 @@ namespace RSA_Playfair
 
             pn_pf.Enabled = true;
             pn_pf.Visible = true;
+
+            btn_encrypt.Enabled = false;
+            btn_decrypt.Enabled = false;
+
+            btn_decrypt.Visible = false;
+            btn_encrypt.Visible = false;
 
             lb1.Text = "PlayFair";
         }

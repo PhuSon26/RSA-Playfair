@@ -321,7 +321,7 @@
             panel3.Controls.Add(label9);
             panel3.Location = new Point(0, 403);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1101, 285);
+            panel3.Size = new Size(1101, 338);
             panel3.TabIndex = 6;
             // 
             // radioButton2
@@ -475,7 +475,7 @@
             // 
             pn_pf.Location = new Point(12, 96);
             pn_pf.Name = "pn_pf";
-            pn_pf.Size = new Size(1101, 688);
+            pn_pf.Size = new Size(1101, 741);
             pn_pf.TabIndex = 8;
             // 
             // Main

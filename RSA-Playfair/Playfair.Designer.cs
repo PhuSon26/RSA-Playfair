@@ -33,6 +33,7 @@
             radiobtn_5 = new RadioButton();
             panel1 = new Panel();
             label2 = new Label();
+            btn_encrypt = new Button();
             richTextBox20 = new RichTextBox();
             richTextBox25 = new RichTextBox();
             richTextBox24 = new RichTextBox();
@@ -63,7 +64,6 @@
             rtb_input = new RichTextBox();
             label3 = new Label();
             label4 = new Label();
-            btn_encrypt = new Button();
             btn_decrypt = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -144,6 +144,17 @@
             label2.Size = new Size(111, 30);
             label2.TabIndex = 8;
             label2.Text = "Key Matrix";
+            // 
+            // btn_encrypt
+            // 
+            btn_encrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_encrypt.Location = new Point(374, 691);
+            btn_encrypt.Name = "btn_encrypt";
+            btn_encrypt.Size = new Size(178, 47);
+            btn_encrypt.TabIndex = 12;
+            btn_encrypt.Text = "Encrypt";
+            btn_encrypt.UseVisualStyleBackColor = true;
+            btn_encrypt.Click += btn_encrypt_Click;
             // 
             // richTextBox20
             // 
@@ -442,17 +453,6 @@
             label4.Size = new Size(62, 30);
             label4.TabIndex = 11;
             label4.Text = "Input";
-            // 
-            // btn_encrypt
-            // 
-            btn_encrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_encrypt.Location = new Point(342, 691);
-            btn_encrypt.Name = "btn_encrypt";
-            btn_encrypt.Size = new Size(178, 47);
-            btn_encrypt.TabIndex = 12;
-            btn_encrypt.Text = "Encrypt";
-            btn_encrypt.UseVisualStyleBackColor = true;
-            btn_encrypt.Click += btn_encrypt_Click;
             // 
             // btn_decrypt
             // 
