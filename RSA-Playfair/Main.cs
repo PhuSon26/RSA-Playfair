@@ -1,4 +1,4 @@
-namespace RSA_Playfair
+﻿namespace RSA_Playfair
 {
     public partial class Main : Form
     {
@@ -27,6 +27,62 @@ namespace RSA_Playfair
             }
             return true;
         }
+        private long GCD(long a, long b)
+        {
+            while (b != 0)
+            {
+                long temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return Math.Abs(a);
+        }
+
+        private long ModInverse(long e, long phi)
+        {
+            long t = 0, newT = 1;
+            long r = phi, newR = e;
+
+            while (newR != 0)
+            {
+                long q = r / newR;
+
+                long tempT = t - q * newT;
+                t = newT;
+                newT = tempT;
+
+                long tempR = r - q * newR;
+                r = newR;
+                newR = tempR;
+            }
+
+            if (r != 1)
+                throw new Exception("e không có nghịch đảo modulo theo phi(N).");
+
+            if (t < 0)
+                t += phi;
+
+            return t;
+        }
+
+        private long GenerateValidE(long phi)
+        {
+            long[] preferred = { 65537, 257, 17, 5, 3 };
+
+            foreach (long candidate in preferred)
+            {
+                if (candidate > 1 && candidate < phi && GCD(candidate, phi) == 1)
+                    return candidate;
+            }
+
+            for (long candidate = 3; candidate < phi; candidate += 2)
+            {
+                if (GCD(candidate, phi) == 1)
+                    return candidate;
+            }
+
+            throw new Exception("Không tìm được giá trị e phù hợp.");
+        }
         private void btn_generate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -53,7 +109,77 @@ namespace RSA_Playfair
         }
         private void btn_update_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!int.TryParse(rtb_p.Text.Trim(), out int p) ||
+                    !int.TryParse(rtb_q.Text.Trim(), out int q))
+                {
+                    MessageBox.Show("Vui lòng nhập p và q là số nguyên.");
+                    return;
+                }
 
+                if (!isprime(p) || !isprime(q))
+                {
+                    MessageBox.Show("p và q phải là số nguyên tố.");
+                    return;
+                }
+
+                if (p == q)
+                {
+                    MessageBox.Show("p và q phải khác nhau.");
+                    return;
+                }
+
+                if (p <= 2 || q <= 2)
+                {
+                    MessageBox.Show("Nên chọn p và q là số nguyên tố lớn hơn 2.");
+                    return;
+                }
+
+                long n = (long)p * q;
+                long phi = (long)(p - 1) * (q - 1);
+
+                long eValue;
+                string eText = rtb_e.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(eText))
+                {
+                    eValue = GenerateValidE(phi);
+                }
+                else
+                {
+                    if (!long.TryParse(eText, out eValue))
+                    {
+                        MessageBox.Show("Khóa công khai e phải là số nguyên.");
+                        return;
+                    }
+
+                    if (eValue <= 1 || eValue >= phi)
+                    {
+                        MessageBox.Show("e phải thỏa điều kiện: 1 < e < phi(N).");
+                        return;
+                    }
+
+                    if (GCD(eValue, phi) != 1)
+                    {
+                        MessageBox.Show("e phải nguyên tố cùng nhau với phi(N).");
+                        return;
+                    }
+                }
+
+                long d = ModInverse(eValue, phi);
+
+                rtb_modulus.Text = n.ToString();
+                rtb_phi.Text = phi.ToString();
+                rtb_e.Text = eValue.ToString();
+                rtb_d.Text = d.ToString();
+
+                MessageBox.Show("Cập nhật tham số RSA thành công.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi cập nhật tham số: " + ex.Message);
+            }
         }
 
         private void rsa_btn_Click(object sender, EventArgs e)
