@@ -1,4 +1,6 @@
-﻿namespace RSA_Playfair
+﻿using System.Numerics;
+
+namespace RSA_Playfair
 {
     public partial class Main : Form
     {
@@ -229,12 +231,46 @@
         }
         private void btn_encrypt_Click(object sender, EventArgs e)
         {
+            string text = rtb_plaintext.Text;
+            List<string> result = new();
 
+            foreach (char c in text)
+            {
+                BigInteger m = (int)c;
+                BigInteger ciph = Encrypt(m);
+                result.Add(ciph.ToString());
+            }
+
+            rtb_ciphertext.Text = string.Join("#", result);
+        }
+        private BigInteger Encrypt(BigInteger m)
+        {
+            BigInteger E = BigInteger.Parse(rtb_e.Text);
+            BigInteger N = BigInteger.Parse(rtb_modulus.Text);
+            return BigInteger.ModPow(m, E, N);
+
+        }
+        private BigInteger Decrypt(BigInteger c)
+        {
+            BigInteger d = BigInteger.Parse(rtb_d.Text);
+            BigInteger N = BigInteger.Parse(rtb_modulus.Text);
+            return BigInteger.ModPow(c, d, N);
         }
 
         private void btn_decrypt_Click(object sender, EventArgs e)
         {
 
+            string[] parts = rtb_ciphertext.Text.Split('#');
+            string result = "";
+
+            foreach (string part in parts)
+            {
+                BigInteger c = BigInteger.Parse(part);
+                BigInteger m = Decrypt(c);
+                result += (char)(int)m;
+            }
+
+            rtb_plaintext.Text = result;
         }
     }
 }
