@@ -1,5 +1,5 @@
 ﻿using System.Numerics;
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 namespace RSA_Playfair
 {
     public partial class Main : Form
@@ -217,6 +217,8 @@ namespace RSA_Playfair
 
             pn_rsa.Enabled = false;
             pn_rsa.Visible = false;
+            panel3.Enabled = false;
+            panel3.Visible = false;
 
             pn_pf.Enabled = true;
             pn_pf.Visible = true;
@@ -229,7 +231,7 @@ namespace RSA_Playfair
 
             lb1.Text = "PlayFair";
         }
-        private void btn_encrypt_Click(object sender, EventArgs e)
+        private void btn_en_Click(object sender, EventArgs e)
         {
             string text = rtb_plaintext.Text;
             List<string> result = new();
@@ -257,7 +259,7 @@ namespace RSA_Playfair
             return BigInteger.ModPow(c, d, N);
         }
 
-        private void btn_decrypt_Click(object sender, EventArgs e)
+        private void btn_de_Click(object sender, EventArgs e)
         {
 
             string[] parts = rtb_ciphertext.Text.Split('#');

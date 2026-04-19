@@ -90,6 +90,16 @@ namespace RSA_Playfair
 
             rtb_output.Text = output;
         }
+
+        private void rtb_output_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
     public class PlayfairCipher

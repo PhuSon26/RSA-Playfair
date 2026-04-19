@@ -33,7 +33,6 @@
             radiobtn_5 = new RadioButton();
             panel1 = new Panel();
             label2 = new Label();
-            btn_encrypt = new Button();
             richTextBox20 = new RichTextBox();
             richTextBox25 = new RichTextBox();
             richTextBox24 = new RichTextBox();
@@ -59,6 +58,7 @@
             richTextBox3 = new RichTextBox();
             richTextBox2 = new RichTextBox();
             richTextBox1 = new RichTextBox();
+            btn_encrypt = new Button();
             rtb_key = new RichTextBox();
             rtb_output = new RichTextBox();
             rtb_input = new RichTextBox();
@@ -72,9 +72,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(21, 0);
+            label1.Location = new Point(24, 0);
             label1.Name = "label1";
-            label1.Size = new Size(118, 30);
+            label1.Size = new Size(151, 37);
             label1.TabIndex = 7;
             label1.Text = "Playfair key";
             // 
@@ -82,9 +82,10 @@
             // 
             radiobtn_6.AutoSize = true;
             radiobtn_6.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radiobtn_6.Location = new Point(763, 3);
+            radiobtn_6.Location = new Point(872, 4);
+            radiobtn_6.Margin = new Padding(3, 4, 3, 4);
             radiobtn_6.Name = "radiobtn_6";
-            radiobtn_6.Size = new Size(127, 34);
+            radiobtn_6.Size = new Size(161, 41);
             radiobtn_6.TabIndex = 6;
             radiobtn_6.TabStop = true;
             radiobtn_6.Text = "6x6 matrix";
@@ -94,9 +95,10 @@
             // 
             radiobtn_5.AutoSize = true;
             radiobtn_5.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radiobtn_5.Location = new Point(630, 3);
+            radiobtn_5.Location = new Point(720, 4);
+            radiobtn_5.Margin = new Padding(3, 4, 3, 4);
             radiobtn_5.Name = "radiobtn_5";
-            radiobtn_5.Size = new Size(127, 34);
+            radiobtn_5.Size = new Size(161, 41);
             radiobtn_5.TabIndex = 5;
             radiobtn_5.TabStop = true;
             radiobtn_5.Text = "5x5 matrix";
@@ -130,307 +132,339 @@
             panel1.Controls.Add(richTextBox3);
             panel1.Controls.Add(richTextBox2);
             panel1.Controls.Add(richTextBox1);
-            panel1.Location = new Point(21, 71);
+            panel1.Location = new Point(24, 95);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(600, 600);
+            panel1.Size = new Size(686, 771);
             panel1.TabIndex = 4;
+            panel1.Paint += panel1_Paint;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(38, 538);
+            label2.Location = new Point(19, 717);
             label2.Name = "label2";
-            label2.Size = new Size(111, 30);
+            label2.Size = new Size(142, 37);
             label2.TabIndex = 8;
             label2.Text = "Key Matrix";
-            // 
-            // btn_encrypt
-            // 
-            btn_encrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_encrypt.Location = new Point(374, 691);
-            btn_encrypt.Name = "btn_encrypt";
-            btn_encrypt.Size = new Size(178, 47);
-            btn_encrypt.TabIndex = 12;
-            btn_encrypt.Text = "Encrypt";
-            btn_encrypt.UseVisualStyleBackColor = true;
-            btn_encrypt.Click += btn_encrypt_Click;
             // 
             // richTextBox20
             // 
             richTextBox20.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox20.Location = new Point(425, 293);
+            richTextBox20.Location = new Point(486, 391);
+            richTextBox20.Margin = new Padding(3, 4, 3, 4);
             richTextBox20.Name = "richTextBox20";
             richTextBox20.ReadOnly = true;
-            richTextBox20.Size = new Size(50, 50);
+            richTextBox20.Size = new Size(57, 65);
             richTextBox20.TabIndex = 30;
             richTextBox20.Text = "";
             // 
             // richTextBox25
             // 
             richTextBox25.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox25.Location = new Point(425, 376);
+            richTextBox25.Location = new Point(486, 501);
+            richTextBox25.Margin = new Padding(3, 4, 3, 4);
             richTextBox25.Name = "richTextBox25";
             richTextBox25.ReadOnly = true;
-            richTextBox25.Size = new Size(50, 50);
+            richTextBox25.Size = new Size(57, 65);
             richTextBox25.TabIndex = 29;
             richTextBox25.Text = "";
             // 
             // richTextBox24
             // 
             richTextBox24.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox24.Location = new Point(331, 376);
+            richTextBox24.Location = new Point(378, 501);
+            richTextBox24.Margin = new Padding(3, 4, 3, 4);
             richTextBox24.Name = "richTextBox24";
             richTextBox24.ReadOnly = true;
-            richTextBox24.Size = new Size(50, 50);
+            richTextBox24.Size = new Size(57, 65);
             richTextBox24.TabIndex = 28;
             richTextBox24.Text = "";
             // 
             // richTextBox19
             // 
             richTextBox19.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox19.Location = new Point(331, 293);
+            richTextBox19.Location = new Point(378, 391);
+            richTextBox19.Margin = new Padding(3, 4, 3, 4);
             richTextBox19.Name = "richTextBox19";
             richTextBox19.ReadOnly = true;
-            richTextBox19.Size = new Size(50, 50);
+            richTextBox19.Size = new Size(57, 65);
             richTextBox19.TabIndex = 27;
             richTextBox19.Text = "";
             // 
             // richTextBox15
             // 
             richTextBox15.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox15.Location = new Point(425, 206);
+            richTextBox15.Location = new Point(486, 275);
+            richTextBox15.Margin = new Padding(3, 4, 3, 4);
             richTextBox15.Name = "richTextBox15";
             richTextBox15.ReadOnly = true;
-            richTextBox15.Size = new Size(50, 50);
+            richTextBox15.Size = new Size(57, 65);
             richTextBox15.TabIndex = 25;
             richTextBox15.Text = "";
             // 
             // richTextBox14
             // 
             richTextBox14.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox14.Location = new Point(331, 206);
+            richTextBox14.Location = new Point(378, 275);
+            richTextBox14.Margin = new Padding(3, 4, 3, 4);
             richTextBox14.Name = "richTextBox14";
             richTextBox14.ReadOnly = true;
-            richTextBox14.Size = new Size(50, 50);
+            richTextBox14.Size = new Size(57, 65);
             richTextBox14.TabIndex = 24;
             richTextBox14.Text = "";
             // 
             // richTextBox23
             // 
             richTextBox23.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox23.Location = new Point(232, 376);
+            richTextBox23.Location = new Point(265, 501);
+            richTextBox23.Margin = new Padding(3, 4, 3, 4);
             richTextBox23.Name = "richTextBox23";
             richTextBox23.ReadOnly = true;
-            richTextBox23.Size = new Size(50, 50);
+            richTextBox23.Size = new Size(57, 65);
             richTextBox23.TabIndex = 22;
             richTextBox23.Text = "";
             // 
             // richTextBox18
             // 
             richTextBox18.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox18.Location = new Point(232, 293);
+            richTextBox18.Location = new Point(265, 391);
+            richTextBox18.Margin = new Padding(3, 4, 3, 4);
             richTextBox18.Name = "richTextBox18";
             richTextBox18.ReadOnly = true;
-            richTextBox18.Size = new Size(50, 50);
+            richTextBox18.Size = new Size(57, 65);
             richTextBox18.TabIndex = 21;
             richTextBox18.Text = "";
             // 
             // richTextBox13
             // 
             richTextBox13.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox13.Location = new Point(232, 206);
+            richTextBox13.Location = new Point(265, 275);
+            richTextBox13.Margin = new Padding(3, 4, 3, 4);
             richTextBox13.Name = "richTextBox13";
             richTextBox13.ReadOnly = true;
-            richTextBox13.Size = new Size(50, 50);
+            richTextBox13.Size = new Size(57, 65);
             richTextBox13.TabIndex = 20;
             richTextBox13.Text = "";
             // 
             // richTextBox10
             // 
             richTextBox10.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox10.Location = new Point(425, 124);
+            richTextBox10.Location = new Point(486, 165);
+            richTextBox10.Margin = new Padding(3, 4, 3, 4);
             richTextBox10.Name = "richTextBox10";
             richTextBox10.ReadOnly = true;
-            richTextBox10.Size = new Size(50, 50);
+            richTextBox10.Size = new Size(57, 65);
             richTextBox10.TabIndex = 18;
             richTextBox10.Text = "";
             // 
             // richTextBox9
             // 
             richTextBox9.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox9.Location = new Point(331, 124);
+            richTextBox9.Location = new Point(378, 165);
+            richTextBox9.Margin = new Padding(3, 4, 3, 4);
             richTextBox9.Name = "richTextBox9";
             richTextBox9.ReadOnly = true;
-            richTextBox9.Size = new Size(50, 50);
+            richTextBox9.Size = new Size(57, 65);
             richTextBox9.TabIndex = 17;
             richTextBox9.Text = "";
             // 
             // richTextBox8
             // 
             richTextBox8.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox8.Location = new Point(232, 124);
+            richTextBox8.Location = new Point(265, 165);
+            richTextBox8.Margin = new Padding(3, 4, 3, 4);
             richTextBox8.Name = "richTextBox8";
             richTextBox8.ReadOnly = true;
-            richTextBox8.Size = new Size(50, 50);
+            richTextBox8.Size = new Size(57, 65);
             richTextBox8.TabIndex = 16;
             richTextBox8.Text = "";
             // 
             // richTextBox22
             // 
             richTextBox22.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox22.Location = new Point(134, 376);
+            richTextBox22.Location = new Point(153, 501);
+            richTextBox22.Margin = new Padding(3, 4, 3, 4);
             richTextBox22.Name = "richTextBox22";
             richTextBox22.ReadOnly = true;
-            richTextBox22.Size = new Size(50, 50);
+            richTextBox22.Size = new Size(57, 65);
             richTextBox22.TabIndex = 14;
             richTextBox22.Text = "";
             // 
             // richTextBox17
             // 
             richTextBox17.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox17.Location = new Point(134, 293);
+            richTextBox17.Location = new Point(153, 391);
+            richTextBox17.Margin = new Padding(3, 4, 3, 4);
             richTextBox17.Name = "richTextBox17";
             richTextBox17.ReadOnly = true;
-            richTextBox17.Size = new Size(50, 50);
+            richTextBox17.Size = new Size(57, 65);
             richTextBox17.TabIndex = 13;
             richTextBox17.Text = "";
             // 
             // richTextBox12
             // 
             richTextBox12.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox12.Location = new Point(134, 206);
+            richTextBox12.Location = new Point(153, 275);
+            richTextBox12.Margin = new Padding(3, 4, 3, 4);
             richTextBox12.Name = "richTextBox12";
             richTextBox12.ReadOnly = true;
-            richTextBox12.Size = new Size(50, 50);
+            richTextBox12.Size = new Size(57, 65);
             richTextBox12.TabIndex = 12;
             richTextBox12.Text = "";
             // 
             // richTextBox7
             // 
             richTextBox7.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox7.Location = new Point(134, 124);
+            richTextBox7.Location = new Point(153, 165);
+            richTextBox7.Margin = new Padding(3, 4, 3, 4);
             richTextBox7.Name = "richTextBox7";
             richTextBox7.ReadOnly = true;
-            richTextBox7.Size = new Size(50, 50);
+            richTextBox7.Size = new Size(57, 65);
             richTextBox7.TabIndex = 11;
             richTextBox7.Text = "";
             // 
             // richTextBox21
             // 
             richTextBox21.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox21.Location = new Point(38, 376);
+            richTextBox21.Location = new Point(43, 501);
+            richTextBox21.Margin = new Padding(3, 4, 3, 4);
             richTextBox21.Name = "richTextBox21";
             richTextBox21.ReadOnly = true;
-            richTextBox21.Size = new Size(50, 50);
+            richTextBox21.Size = new Size(57, 65);
             richTextBox21.TabIndex = 9;
             richTextBox21.Text = "";
             // 
             // richTextBox16
             // 
             richTextBox16.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox16.Location = new Point(38, 293);
+            richTextBox16.Location = new Point(43, 391);
+            richTextBox16.Margin = new Padding(3, 4, 3, 4);
             richTextBox16.Name = "richTextBox16";
             richTextBox16.ReadOnly = true;
-            richTextBox16.Size = new Size(50, 50);
+            richTextBox16.Size = new Size(57, 65);
             richTextBox16.TabIndex = 8;
             richTextBox16.Text = "";
             // 
             // richTextBox11
             // 
             richTextBox11.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox11.Location = new Point(38, 206);
+            richTextBox11.Location = new Point(43, 275);
+            richTextBox11.Margin = new Padding(3, 4, 3, 4);
             richTextBox11.Name = "richTextBox11";
             richTextBox11.ReadOnly = true;
-            richTextBox11.Size = new Size(50, 50);
+            richTextBox11.Size = new Size(57, 65);
             richTextBox11.TabIndex = 7;
             richTextBox11.Text = "";
             // 
             // richTextBox6
             // 
             richTextBox6.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox6.Location = new Point(38, 124);
+            richTextBox6.Location = new Point(43, 165);
+            richTextBox6.Margin = new Padding(3, 4, 3, 4);
             richTextBox6.Name = "richTextBox6";
             richTextBox6.ReadOnly = true;
-            richTextBox6.Size = new Size(50, 50);
+            richTextBox6.Size = new Size(57, 65);
             richTextBox6.TabIndex = 6;
             richTextBox6.Text = "";
             // 
             // richTextBox5
             // 
             richTextBox5.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox5.Location = new Point(425, 33);
+            richTextBox5.Location = new Point(486, 44);
+            richTextBox5.Margin = new Padding(3, 4, 3, 4);
             richTextBox5.Name = "richTextBox5";
             richTextBox5.ReadOnly = true;
-            richTextBox5.Size = new Size(50, 50);
+            richTextBox5.Size = new Size(57, 65);
             richTextBox5.TabIndex = 4;
             richTextBox5.Text = "";
             // 
             // richTextBox4
             // 
             richTextBox4.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox4.Location = new Point(331, 33);
+            richTextBox4.Location = new Point(378, 44);
+            richTextBox4.Margin = new Padding(3, 4, 3, 4);
             richTextBox4.Name = "richTextBox4";
             richTextBox4.ReadOnly = true;
-            richTextBox4.Size = new Size(50, 50);
+            richTextBox4.Size = new Size(57, 65);
             richTextBox4.TabIndex = 3;
             richTextBox4.Text = "";
             // 
             // richTextBox3
             // 
             richTextBox3.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox3.Location = new Point(232, 33);
+            richTextBox3.Location = new Point(265, 44);
+            richTextBox3.Margin = new Padding(3, 4, 3, 4);
             richTextBox3.Name = "richTextBox3";
             richTextBox3.ReadOnly = true;
-            richTextBox3.Size = new Size(50, 50);
+            richTextBox3.Size = new Size(57, 65);
             richTextBox3.TabIndex = 2;
             richTextBox3.Text = "";
             // 
             // richTextBox2
             // 
             richTextBox2.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox2.Location = new Point(134, 33);
+            richTextBox2.Location = new Point(153, 44);
+            richTextBox2.Margin = new Padding(3, 4, 3, 4);
             richTextBox2.Name = "richTextBox2";
             richTextBox2.ReadOnly = true;
-            richTextBox2.Size = new Size(50, 50);
+            richTextBox2.Size = new Size(57, 65);
             richTextBox2.TabIndex = 1;
             richTextBox2.Text = "";
             // 
             // richTextBox1
             // 
             richTextBox1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox1.Location = new Point(38, 33);
+            richTextBox1.Location = new Point(43, 44);
+            richTextBox1.Margin = new Padding(3, 4, 3, 4);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new Size(50, 50);
+            richTextBox1.Size = new Size(57, 65);
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
+            // 
+            // btn_encrypt
+            // 
+            btn_encrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_encrypt.Location = new Point(412, 886);
+            btn_encrypt.Margin = new Padding(3, 4, 3, 4);
+            btn_encrypt.Name = "btn_encrypt";
+            btn_encrypt.Size = new Size(203, 63);
+            btn_encrypt.TabIndex = 12;
+            btn_encrypt.Text = "Encrypt";
+            btn_encrypt.UseVisualStyleBackColor = true;
+            btn_encrypt.Click += btn_encrypt_Click;
             // 
             // rtb_key
             // 
             rtb_key.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rtb_key.Location = new Point(21, 33);
+            rtb_key.Location = new Point(24, 44);
+            rtb_key.Margin = new Padding(3, 4, 3, 4);
             rtb_key.Name = "rtb_key";
-            rtb_key.Size = new Size(600, 32);
+            rtb_key.Size = new Size(685, 41);
             rtb_key.TabIndex = 3;
             rtb_key.Text = "";
             // 
             // rtb_output
             // 
             rtb_output.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rtb_output.Location = new Point(630, 390);
+            rtb_output.Location = new Point(721, 411);
+            rtb_output.Margin = new Padding(3, 4, 3, 4);
             rtb_output.Name = "rtb_output";
             rtb_output.ReadOnly = true;
-            rtb_output.Size = new Size(473, 281);
+            rtb_output.Size = new Size(540, 373);
             rtb_output.TabIndex = 8;
             rtb_output.Text = "";
+            rtb_output.TextChanged += rtb_output_TextChanged;
             // 
             // rtb_input
             // 
             rtb_input.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rtb_input.Location = new Point(630, 71);
+            rtb_input.Location = new Point(720, 95);
+            rtb_input.Margin = new Padding(3, 4, 3, 4);
             rtb_input.Name = "rtb_input";
-            rtb_input.Size = new Size(473, 280);
+            rtb_input.Size = new Size(540, 270);
             rtb_input.TabIndex = 9;
             rtb_input.Text = "";
             // 
@@ -438,9 +472,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(630, 354);
+            label3.Location = new Point(720, 370);
             label3.Name = "label3";
-            label3.Size = new Size(79, 30);
+            label3.Size = new Size(101, 37);
             label3.TabIndex = 10;
             label3.Text = "Output";
             // 
@@ -448,18 +482,19 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(630, 40);
+            label4.Location = new Point(720, 53);
             label4.Name = "label4";
-            label4.Size = new Size(62, 30);
+            label4.Size = new Size(79, 37);
             label4.TabIndex = 11;
             label4.Text = "Input";
             // 
             // btn_decrypt
             // 
             btn_decrypt.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_decrypt.Location = new Point(596, 691);
+            btn_decrypt.Location = new Point(720, 866);
+            btn_decrypt.Margin = new Padding(3, 4, 3, 4);
             btn_decrypt.Name = "btn_decrypt";
-            btn_decrypt.Size = new Size(178, 47);
+            btn_decrypt.Size = new Size(203, 63);
             btn_decrypt.TabIndex = 25;
             btn_decrypt.Text = "Decrypt";
             btn_decrypt.UseVisualStyleBackColor = true;
@@ -467,7 +502,7 @@
             // 
             // Playfair
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btn_decrypt);
             Controls.Add(btn_encrypt);
@@ -480,8 +515,9 @@
             Controls.Add(radiobtn_6);
             Controls.Add(rtb_key);
             Controls.Add(radiobtn_5);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Playfair";
-            Size = new Size(1103, 741);
+            Size = new Size(1261, 988);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
