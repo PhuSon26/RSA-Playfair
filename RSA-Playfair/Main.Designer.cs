@@ -54,22 +54,22 @@
             panel3 = new Panel();
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
-            rtb_ciphertext = new RichTextBox();
+            rtb_output = new RichTextBox();
             rtb_base = new RichTextBox();
             rtb_seg = new RichTextBox();
-            rtb_plaintext = new RichTextBox();
-            label13 = new Label();
+            rtb_input = new RichTextBox();
+            lb_output = new Label();
             label12 = new Label();
             label11 = new Label();
-            label10 = new Label();
+            lb_input = new Label();
             label9 = new Label();
             btn_decrypt = new Button();
             btn_encrypt = new Button();
             pn_rsa = new Panel();
+            btn_de = new Button();
+            btn_en = new Button();
             panel4 = new Panel();
             pn_pf = new Panel();
-            btn_en = new Button();
-            btn_de = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -324,14 +324,14 @@
             // 
             panel3.Controls.Add(radioButton2);
             panel3.Controls.Add(radioButton1);
-            panel3.Controls.Add(rtb_ciphertext);
+            panel3.Controls.Add(rtb_output);
             panel3.Controls.Add(rtb_base);
             panel3.Controls.Add(rtb_seg);
-            panel3.Controls.Add(rtb_plaintext);
-            panel3.Controls.Add(label13);
+            panel3.Controls.Add(rtb_input);
+            panel3.Controls.Add(lb_output);
             panel3.Controls.Add(label12);
             panel3.Controls.Add(label11);
-            panel3.Controls.Add(label10);
+            panel3.Controls.Add(lb_input);
             panel3.Controls.Add(label9);
             panel3.Location = new Point(11, 516);
             panel3.Margin = new Padding(3, 4, 3, 4);
@@ -364,15 +364,16 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "Text";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
-            // rtb_ciphertext
+            // rtb_output
             // 
-            rtb_ciphertext.Location = new Point(9, 337);
-            rtb_ciphertext.Margin = new Padding(3, 4, 3, 4);
-            rtb_ciphertext.Name = "rtb_ciphertext";
-            rtb_ciphertext.Size = new Size(1237, 41);
-            rtb_ciphertext.TabIndex = 23;
-            rtb_ciphertext.Text = "";
+            rtb_output.Location = new Point(9, 337);
+            rtb_output.Margin = new Padding(3, 4, 3, 4);
+            rtb_output.Name = "rtb_output";
+            rtb_output.Size = new Size(1237, 41);
+            rtb_output.TabIndex = 23;
+            rtb_output.Text = "";
             // 
             // rtb_base
             // 
@@ -392,24 +393,25 @@
             rtb_seg.TabIndex = 21;
             rtb_seg.Text = "";
             // 
-            // rtb_plaintext
+            // rtb_input
             // 
-            rtb_plaintext.Location = new Point(9, 92);
-            rtb_plaintext.Margin = new Padding(3, 4, 3, 4);
-            rtb_plaintext.Name = "rtb_plaintext";
-            rtb_plaintext.Size = new Size(1237, 41);
-            rtb_plaintext.TabIndex = 16;
-            rtb_plaintext.Text = "";
+            rtb_input.Location = new Point(9, 92);
+            rtb_input.Margin = new Padding(3, 4, 3, 4);
+            rtb_input.Name = "rtb_input";
+            rtb_input.Size = new Size(1237, 41);
+            rtb_input.TabIndex = 16;
+            rtb_input.Text = "";
+            rtb_input.TextChanged += rtb_input_TextChanged;
             // 
-            // label13
+            // lb_output
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(9, 300);
-            label13.Name = "label13";
-            label13.Size = new Size(124, 32);
-            label13.TabIndex = 20;
-            label13.Text = "Ciphertext";
+            lb_output.AutoSize = true;
+            lb_output.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_output.Location = new Point(9, 300);
+            lb_output.Name = "lb_output";
+            lb_output.Size = new Size(90, 32);
+            lb_output.TabIndex = 20;
+            lb_output.Text = "Output";
             // 
             // label12
             // 
@@ -431,15 +433,15 @@
             label11.TabIndex = 18;
             label11.Text = "The input will be seperated into segments of Size 1 (The symbol '#'  is used as seperator)";
             // 
-            // label10
+            // lb_input
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(3, 55);
-            label10.Name = "label10";
-            label10.Size = new Size(105, 32);
-            label10.TabIndex = 17;
-            label10.Text = "Plaintext";
+            lb_input.AutoSize = true;
+            lb_input.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_input.Location = new Point(3, 55);
+            lb_input.Name = "lb_input";
+            lb_input.Size = new Size(70, 32);
+            lb_input.TabIndex = 17;
+            lb_input.Text = "Input";
             // 
             // label9
             // 
@@ -461,7 +463,6 @@
             btn_decrypt.TabIndex = 24;
             btn_decrypt.Text = "Decrypt";
             btn_decrypt.UseVisualStyleBackColor = true;
-            //btn_decrypt.Click += btn_decrypt_Click;
             // 
             // btn_encrypt
             // 
@@ -473,7 +474,6 @@
             btn_encrypt.TabIndex = 8;
             btn_encrypt.Text = "Encrypt";
             btn_encrypt.UseVisualStyleBackColor = true;
-            //btn_encrypt.Click += btn_encrypt_Click;
             // 
             // pn_rsa
             // 
@@ -487,6 +487,26 @@
             pn_rsa.Name = "pn_rsa";
             pn_rsa.Size = new Size(1261, 917);
             pn_rsa.TabIndex = 7;
+            // 
+            // btn_de
+            // 
+            btn_de.Location = new Point(734, 808);
+            btn_de.Name = "btn_de";
+            btn_de.Size = new Size(170, 41);
+            btn_de.TabIndex = 9;
+            btn_de.Text = "Decrypt";
+            btn_de.UseVisualStyleBackColor = true;
+            btn_de.Click += btn_de_Click;
+            // 
+            // btn_en
+            // 
+            btn_en.Location = new Point(264, 808);
+            btn_en.Name = "btn_en";
+            btn_en.Size = new Size(170, 41);
+            btn_en.TabIndex = 7;
+            btn_en.Text = "Encrypt";
+            btn_en.UseVisualStyleBackColor = true;
+            btn_en.Click += btn_en_Click;
             // 
             // panel4
             // 
@@ -504,26 +524,6 @@
             pn_pf.Name = "pn_pf";
             pn_pf.Size = new Size(1258, 988);
             pn_pf.TabIndex = 8;
-            // 
-            // btn_en
-            // 
-            btn_en.Location = new Point(264, 808);
-            btn_en.Name = "btn_en";
-            btn_en.Size = new Size(170, 41);
-            btn_en.TabIndex = 7;
-            btn_en.Text = "Encrypt";
-            btn_en.UseVisualStyleBackColor = true;
-            btn_en.Click += btn_en_Click;
-            // 
-            // btn_de
-            // 
-            btn_de.Location = new Point(734, 808);
-            btn_de.Name = "btn_de";
-            btn_de.Size = new Size(170, 41);
-            btn_de.TabIndex = 9;
-            btn_de.Text = "Decrypt";
-            btn_de.UseVisualStyleBackColor = true;
-            btn_de.Click += btn_de_Click;
             // 
             // Main
             // 
@@ -543,6 +543,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Main";
             Text = "Form1";
+            Load += Main_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -583,14 +584,14 @@
         private Label label7;
         private Label label8;
         private Label label9;
-        private RichTextBox rtb_ciphertext;
+        private RichTextBox rtb_output;
         private RichTextBox rtb_base;
         private RichTextBox rtb_seg;
-        private RichTextBox rtb_plaintext;
-        private Label label13;
+        private RichTextBox rtb_input  ;
+        private Label lb_output;
         private Label label12;
         private Label label11;
-        private Label label10;
+        private Label lb_input;
         private Label label14;
         private Button btn_decrypt;
         private Button btn_encrypt;

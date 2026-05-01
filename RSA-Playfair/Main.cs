@@ -231,48 +231,149 @@ namespace RSA_Playfair
 
             lb1.Text = "PlayFair";
         }
-        private void btn_en_Click(object sender, EventArgs e)
+        private int GetBlockSize(BigInteger N)
         {
-            string text = rtb_plaintext.Text;
-            List<string> result = new();
+            int k = 0;
+            BigInteger value = 1;
 
-            foreach (char c in text)
+            while (value * 256 < N)
             {
-                BigInteger m = (int)c;
-                BigInteger ciph = Encrypt(m);
-                result.Add(ciph.ToString());
+                value *= 256;
+                k++;
             }
 
-            rtb_ciphertext.Text = string.Join("#", result);
+            return k;
         }
-        private BigInteger Encrypt(BigInteger m)
-        {
-            BigInteger E = BigInteger.Parse(rtb_e.Text);
-            BigInteger N = BigInteger.Parse(rtb_modulus.Text);
-            return BigInteger.ModPow(m, E, N);
 
-        }
-        private BigInteger Decrypt(BigInteger c)
+        private BigInteger TextBlockToNumber(string block)
         {
-            BigInteger d = BigInteger.Parse(rtb_d.Text);
+            BigInteger m = 0;
+            byte[] bytes = System.Text.Encoding.ASCII.GetBytes(block);
+
+            foreach (byte b in bytes)
+            {
+                m = m * 256 + b;
+            }
+
+            return m;
+        }
+
+        private string NumberToTextBlock(BigInteger m, int k)
+        {
+            byte[] bytes = new byte[k];
+
+            for (int i = k - 1; i >= 0; i--)
+            {
+                bytes[i] = (byte)(m % 256);
+                m /= 256;
+            }
+
+            return System.Text.Encoding.ASCII.GetString(bytes);
+        }
+
+        private List<string> SplitText(string text, int k)
+        {
+            List<string> list = new();
+
+            for (int i = 0; i < text.Length; i += k)
+            {
+                string block = text.Substring(i, Math.Min(k, text.Length - i));
+
+                if (block.Length < k)
+                    block = block.PadRight(k, ' '); // pad bằng space
+
+                list.Add(block);
+            }
+
+            return list;
+        }
+        //Hàm kiểm tra input
+
+        private bool ValidateTextInput(string text)
+        {
+            foreach (char c in text)
+            {
+                if (c > 127)
+                    return false;
+            }
+            return true;
+        }
+
+        private bool ValidateNumberInput(string text)
+        {
+            foreach (char c in text)
+            {
+                if (!char.IsDigit(c) && c != '#' && !char.IsWhiteSpace(c))
+                    return false;
+            }
+            return true;
+        }
+
+        private void btn_en_Click(object sender, EventArgs e)
+        {
+            lb_input.Text = "Plaintext input";
+            lb_output.Text = "Ciphertext output";
+
             BigInteger N = BigInteger.Parse(rtb_modulus.Text);
-            return BigInteger.ModPow(c, d, N);
+            BigInteger E = BigInteger.Parse(rtb_e.Text);
+
+            int k = GetBlockSize(N);
+
+
+            string text = rtb_input.Text;
+
+
+            List<string> blocks = SplitText(text, k);
+            List<string> numberList = new();
+            List<string> cipherList = new();
+
+            rtb_seg.Text = string.Join(" # ", blocks.Select(b => b.TrimEnd(' ')));
+
+            foreach (var block in blocks)
+            {
+
+                BigInteger m = TextBlockToNumber(block);
+                numberList.Add(m.ToString());
+
+                BigInteger c = BigInteger.ModPow(m, E, N);
+                cipherList.Add(c.ToString());
+            }
+            rtb_base.Text = string.Join(" # ", numberList);
+            rtb_output.Text = string.Join("#", cipherList);
         }
 
         private void btn_de_Click(object sender, EventArgs e)
         {
+            lb_input.Text = "Ciphertext input";
+            lb_output.Text = "Plaintext output";
 
-            string[] parts = rtb_ciphertext.Text.Split('#');
+            BigInteger N = BigInteger.Parse(rtb_modulus.Text);
+            BigInteger d = BigInteger.Parse(rtb_d.Text);
+
+            string[] parts = rtb_input.Text.Split('#');
             string result = "";
+            int k = GetBlockSize(N);
+
+            List<string> numberList = new();
+
+            List<string> segmentList = new();
 
             foreach (string part in parts)
             {
                 BigInteger c = BigInteger.Parse(part);
-                BigInteger m = Decrypt(c);
-                result += (char)(int)m;
-            }
+                BigInteger m = BigInteger.ModPow(c, d, N);
 
-            rtb_plaintext.Text = result;
+                numberList.Add(m.ToString());
+                string block = NumberToTextBlock(m, k);
+                segmentList.Add(block.TrimEnd(' '));
+
+                result += NumberToTextBlock(m, k);
+            }
+            rtb_seg.Text = string.Join(" # ", segmentList);
+            rtb_base.Text = string.Join(" # ", numberList);
+            rtb_output.Text = result;
         }
+
+       
     }
 }
