@@ -333,7 +333,7 @@
             panel3.Controls.Add(label11);
             panel3.Controls.Add(lb_input);
             panel3.Controls.Add(label9);
-            panel3.Location = new Point(11, 516);
+            panel3.Location = new Point(3, 388);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(1258, 387);
@@ -364,7 +364,6 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "Text";
             radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // rtb_output
             // 
@@ -401,7 +400,6 @@
             rtb_input.Size = new Size(1237, 41);
             rtb_input.TabIndex = 16;
             rtb_input.Text = "";
-            rtb_input.TextChanged += rtb_input_TextChanged;
             // 
             // lb_output
             // 
@@ -431,7 +429,7 @@
             label11.Name = "label11";
             label11.Size = new Size(965, 32);
             label11.TabIndex = 18;
-            label11.Text = "The input will be seperated into segments of Size 1 (The symbol '#'  is used as seperator)";
+            label11.Text = "The input will be seperated into segments of Size 7 (The symbol '#'  is used as seperator)";
             // 
             // lb_input
             // 
@@ -477,11 +475,13 @@
             // 
             // pn_rsa
             // 
+            
             pn_rsa.Controls.Add(btn_de);
             pn_rsa.Controls.Add(btn_en);
             pn_rsa.Controls.Add(panel4);
             pn_rsa.Controls.Add(panel2);
             pn_rsa.Controls.Add(panel1);
+            pn_rsa.Controls.Add(panel3);
             pn_rsa.Location = new Point(14, 128);
             pn_rsa.Margin = new Padding(3, 4, 3, 4);
             pn_rsa.Name = "pn_rsa";
@@ -531,7 +531,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(1274, 1055);
-            Controls.Add(panel3);
             Controls.Add(lb2);
             Controls.Add(lb1);
             Controls.Add(btn_decrypt);
@@ -543,7 +542,6 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Main";
             Text = "Form1";
-            Load += Main_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

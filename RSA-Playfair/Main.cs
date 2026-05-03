@@ -8,11 +8,12 @@ namespace RSA_Playfair
         public Main()
         {
             InitializeComponent();
-            rsa_btn.Enabled = false;
+           
             rsa_btn.BackColor = Color.Gray;
             pf.Dock = DockStyle.Fill;
             pn_pf.Controls.Add(pf);
 
+            pn_rsa.BringToFront();
             btn_encrypt.Enabled = false;
             btn_decrypt.Enabled = false;
 
@@ -189,20 +190,17 @@ namespace RSA_Playfair
             rsa_btn.BackColor = Color.Gray;
             pf_btn.BackColor = SystemColors.Control;
 
-            rsa_btn.Enabled = false;
-            pf_btn.Enabled = true;
+          
+            pn_rsa.BringToFront();
 
-            pn_rsa.Enabled = true;
-            pn_rsa.Visible = true;
-
-            pn_pf.Enabled = false;
-            pn_pf.Visible = false;
+            
 
             btn_encrypt.Enabled = true;
             btn_decrypt.Enabled = true;
 
-            btn_decrypt.Visible = true;
             btn_encrypt.Visible = true;
+            btn_decrypt.Visible = true;
+
 
 
             lb1.Text = "RSA";
@@ -212,22 +210,16 @@ namespace RSA_Playfair
             pf_btn.BackColor = Color.Gray;
             rsa_btn.BackColor = SystemColors.Control;
 
-            pf_btn.Enabled = false;
-            rsa_btn.Enabled = true;
+            
+            pn_pf.BringToFront();
 
-            pn_rsa.Enabled = false;
-            pn_rsa.Visible = false;
-            panel3.Enabled = false;
-            panel3.Visible = false;
-
-            pn_pf.Enabled = true;
-            pn_pf.Visible = true;
+          
 
             btn_encrypt.Enabled = false;
             btn_decrypt.Enabled = false;
 
-            btn_decrypt.Visible = false;
             btn_encrypt.Visible = false;
+            btn_decrypt.Visible = false;
 
             lb1.Text = "PlayFair";
         }
@@ -288,7 +280,15 @@ namespace RSA_Playfair
             return list;
         }
         //Hàm kiểm tra input
-
+        private bool IsEmpty(params RichTextBox[] boxes)
+        {
+            foreach (var box in boxes)
+            {
+                if (string.IsNullOrWhiteSpace(box.Text))
+                    return true;
+            }
+            return false;
+        }
         private bool ValidateTextInput(string text)
         {
             foreach (char c in text)
@@ -311,6 +311,16 @@ namespace RSA_Playfair
 
         private void btn_en_Click(object sender, EventArgs e)
         {
+            if (IsEmpty(rtb_input, rtb_modulus, rtb_e))
+            {
+                MessageBox.Show("Chưa có input!");
+                return;
+            }
+            if (!ValidateTextInput(rtb_input.Text))
+            {
+                MessageBox.Show("Encrypt yêu cầu plaintext ASCII.");
+                return;
+            }
             lb_input.Text = "Plaintext input";
             lb_output.Text = "Ciphertext output";
 
@@ -344,6 +354,16 @@ namespace RSA_Playfair
 
         private void btn_de_Click(object sender, EventArgs e)
         {
+            if (IsEmpty(rtb_input, rtb_modulus, rtb_e))
+            {
+                MessageBox.Show("Chưa có input!");
+                return;
+            }
+            if (!ValidateNumberInput(rtb_input.Text))
+            {
+                MessageBox.Show("Decrypt yêu cầu ciphertext dạng số, ngăn cách bởi #.");
+                return;
+            }
             lb_input.Text = "Ciphertext input";
             lb_output.Text = "Plaintext output";
 
@@ -374,6 +394,6 @@ namespace RSA_Playfair
             rtb_output.Text = result;
         }
 
-       
+      
     }
 }
