@@ -150,6 +150,7 @@
             // 
             // rtb_q
             // 
+            rtb_q.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_q.Location = new Point(173, 56);
             rtb_q.Name = "rtb_q";
             rtb_q.Size = new Size(669, 32);
@@ -158,6 +159,7 @@
             // 
             // rtb_p
             // 
+            rtb_p.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_p.Location = new Point(173, 18);
             rtb_p.Name = "rtb_p";
             rtb_p.Size = new Size(669, 32);
@@ -235,6 +237,7 @@
             // 
             // rtb_d
             // 
+            rtb_d.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_d.Location = new Point(173, 129);
             rtb_d.Name = "rtb_d";
             rtb_d.Size = new Size(669, 32);
@@ -243,6 +246,7 @@
             // 
             // rtb_e
             // 
+            rtb_e.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_e.Location = new Point(173, 90);
             rtb_e.Name = "rtb_e";
             rtb_e.Size = new Size(669, 32);
@@ -251,6 +255,7 @@
             // 
             // rtb_phi
             // 
+            rtb_phi.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_phi.Location = new Point(173, 52);
             rtb_phi.Name = "rtb_phi";
             rtb_phi.Size = new Size(669, 32);
@@ -259,6 +264,7 @@
             // 
             // rtb_modulus
             // 
+            rtb_modulus.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_modulus.Location = new Point(173, 8);
             rtb_modulus.Name = "rtb_modulus";
             rtb_modulus.Size = new Size(669, 32);
@@ -322,6 +328,7 @@
             // 
             // rtb_output
             // 
+            rtb_output.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_output.Location = new Point(8, 253);
             rtb_output.Name = "rtb_output";
             rtb_output.Size = new Size(1083, 32);
@@ -330,6 +337,7 @@
             // 
             // rtb_base
             // 
+            rtb_base.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_base.Location = new Point(8, 190);
             rtb_base.Name = "rtb_base";
             rtb_base.Size = new Size(1083, 32);
@@ -338,6 +346,7 @@
             // 
             // rtb_seg
             // 
+            rtb_seg.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_seg.Location = new Point(8, 132);
             rtb_seg.Name = "rtb_seg";
             rtb_seg.Size = new Size(1083, 32);
@@ -346,6 +355,7 @@
             // 
             // rtb_input
             // 
+            rtb_input.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtb_input.Location = new Point(8, 69);
             rtb_input.Name = "rtb_input";
             rtb_input.Size = new Size(1083, 32);
