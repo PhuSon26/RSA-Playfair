@@ -68,7 +68,8 @@ namespace RSA_Playfair
                 MessageBox.Show("Vui lòng nhập nội dung!");
                 return;
             }
-
+            label4.Text = "Plaintext input";
+            label3.Text = "Ciphertext output";
             string output = pfc.Encrypt(rtb_input.Text);
             rtb_output.Text = output;
         }
@@ -85,7 +86,8 @@ namespace RSA_Playfair
                 MessageBox.Show("Vui lòng nhập nội dung!");
                 return;
             }
-
+            label4.Text = "Ciphertext input";
+            label3.Text = "Plaintext output";
             string output = pfc.Decrypt(rtb_input.Text);
 
             rtb_output.Text = output;
