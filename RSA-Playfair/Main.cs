@@ -8,8 +8,12 @@ namespace RSA_Playfair
         public Main()
         {
             InitializeComponent();
-           
-            rsa_btn.BackColor = Color.Gray;
+            ApplyCyberBackgroundTheme();
+            rsa_btn.BackColor = Color.FromArgb(0, 205, 255);
+            rsa_btn.ForeColor = Color.FromArgb(2, 18, 28);
+
+            pf_btn.BackColor = Color.FromArgb(10, 27, 41);
+            pf_btn.ForeColor = Color.FromArgb(235, 250, 255);
             pf.Dock = DockStyle.Fill;
             pn_pf.Controls.Add(pf);
 
@@ -187,10 +191,13 @@ namespace RSA_Playfair
 
         private void rsa_btn_Click(object sender, EventArgs e)
         {
-            rsa_btn.BackColor = Color.Gray;
-            pf_btn.BackColor = SystemColors.Control;
+            rsa_btn.BackColor = Color.FromArgb(0, 205, 255);
+            rsa_btn.ForeColor = Color.FromArgb(2, 18, 28);
 
-          
+            pf_btn.BackColor = Color.FromArgb(8, 23, 35);
+            pf_btn.ForeColor = Color.White;
+
+
             pn_rsa.BringToFront();
 
             
@@ -207,10 +214,13 @@ namespace RSA_Playfair
         }
         private void pf_btn_Click(object sender, EventArgs e)
         {
-            pf_btn.BackColor = Color.Gray;
-            rsa_btn.BackColor = SystemColors.Control;
+            pf_btn.BackColor = Color.FromArgb(0, 205, 255);
+            pf_btn.ForeColor = Color.FromArgb(2, 18, 28);
 
-            
+            rsa_btn.BackColor = Color.FromArgb(8, 23, 35);
+            rsa_btn.ForeColor = Color.White;
+
+
             pn_pf.BringToFront();
 
           
@@ -393,7 +403,139 @@ namespace RSA_Playfair
             rtb_base.Text = string.Join(" # ", numberList);
             rtb_output.Text = result;
         }
+        private void ApplyCyberBackgroundTheme()
+        {
+            Color darkGlass = Color.FromArgb(8, 20, 32);
+            Color darkInput = Color.FromArgb(5, 16, 26);
+            Color cyan = Color.FromArgb(0, 205, 255);
+            Color purple = Color.FromArgb(118, 92, 255);
+            Color white = Color.White;
 
-      
+            // Form chính giữ hình nền
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.BackColor = Color.FromArgb(5, 14, 22);
+
+            // Panel phải trong suốt để nền liền mạch
+            pn_rsa.BackColor = Color.Transparent;
+            pn_pf.BackColor = Color.Transparent;
+            panel1.BackColor = Color.Transparent;
+            panel2.BackColor = Color.Transparent;
+            panel3.BackColor = Color.Transparent;
+            panel4.BackColor = Color.Transparent;
+
+            pn_rsa.BackgroundImage = null;
+            pn_pf.BackgroundImage = null;
+            panel1.BackgroundImage = null;
+            panel2.BackgroundImage = null;
+            panel3.BackgroundImage = null;
+            panel4.BackgroundImage = null;
+
+            // Title
+            lb1.BackColor = Color.FromArgb(8, 20, 32);
+            lb1.ForeColor = Color.White;
+            lb1.Font = new Font("Segoe UI", 32F, FontStyle.Bold);
+
+            lb2.BackColor = Color.FromArgb(8, 20, 32);
+            lb2.ForeColor = Color.White;
+            lb2.Font = new Font("Segoe UI", 17F, FontStyle.Bold);
+            lb2.Padding = new Padding(8, 2, 8, 2);
+
+            // Labels nổi hơn
+            StyleLabel(label14);
+            StyleLabel(label1);
+            StyleLabel(label2);
+            StyleLabel(label3);
+            StyleLabel(label4);
+            StyleLabel(label5);
+            StyleLabel(label6);
+            StyleLabel(label7);
+            StyleLabel(label8);
+            StyleLabel(label11);
+            StyleLabel(label12);
+            StyleLabel(lb_input);
+            StyleLabel(lb_output);
+
+            // Textbox/RichTextBox không còn trắng gắt
+            StyleInput(rtb_p);
+            StyleInput(rtb_q);
+            StyleInput(rtb_modulus);
+            StyleInput(rtb_phi);
+            StyleInput(rtb_e);
+            StyleInput(rtb_d);
+            StyleInput(rtb_input);
+            StyleInput(rtb_seg);
+            StyleInput(rtb_base);
+            StyleInput(rtb_output);
+
+            // Button nổi nhưng không lòe
+            StylePrimaryButton(rsa_btn);
+            StyleSecondaryButton(pf_btn);
+
+            StylePrimaryButton(btn_generate);
+            StylePrimaryButton(btn_en);
+
+            StylePurpleButton(btn_update);
+            StylePurpleButton(btn_de);
+
+            // Ẩn 2 button cũ ngoài panel
+            btn_encrypt.Visible = false;
+            btn_decrypt.Visible = false;
+            btn_encrypt.Size = new Size(1, 1);
+            btn_decrypt.Size = new Size(1, 1);
+        }
+
+        private void StyleLabel(Label label)
+        {
+            label.BackColor = Color.FromArgb(8, 20, 32);
+            label.ForeColor = Color.White;
+            label.Font = new Font("Segoe UI", label.Font.Size, FontStyle.Bold);
+            label.Padding = new Padding(8, 2, 8, 2);
+        }
+
+        private void StyleInput(RichTextBox box)
+        {
+            box.BackColor = Color.FromArgb(5, 16, 26);
+            box.ForeColor = Color.FromArgb(220, 248, 255);
+            box.BorderStyle = BorderStyle.FixedSingle;
+            box.Font = new Font("Consolas", 14F, FontStyle.Bold);
+        }
+
+        private void StylePrimaryButton(Button button)
+        {
+            button.BackColor = Color.FromArgb(0, 205, 255);
+            button.ForeColor = Color.FromArgb(2, 18, 28);
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 2;
+            button.FlatAppearance.BorderColor = Color.FromArgb(170, 245, 255);
+            button.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            button.Cursor = Cursors.Hand;
+            button.UseVisualStyleBackColor = false;
+        }
+
+        private void StylePurpleButton(Button button)
+        {
+            button.BackColor = Color.FromArgb(118, 92, 255);
+            button.ForeColor = Color.White;
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 2;
+            button.FlatAppearance.BorderColor = Color.FromArgb(210, 205, 255);
+            button.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            button.Cursor = Cursors.Hand;
+            button.UseVisualStyleBackColor = false;
+        }
+
+        private void StyleSecondaryButton(Button button)
+        {
+            button.BackColor = Color.FromArgb(8, 23, 35);
+            button.ForeColor = Color.White;
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 2;
+            button.FlatAppearance.BorderColor = Color.FromArgb(0, 205, 255);
+            button.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            button.Cursor = Cursors.Hand;
+            button.UseVisualStyleBackColor = false;
+        }
+
     }
+
 }
